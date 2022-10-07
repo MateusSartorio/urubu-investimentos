@@ -10,15 +10,23 @@ interface propsType {
     fechaCadastro: () => void;
     abreEntrar: () => void;
     fechaEntrar: () => void;
+    toggleSidebar: () => void;
 }
 
 export const Header = (props: propsType) => {
-    const { className, abreCadastro, fechaCadastro, abreEntrar, fechaEntrar } = props;
+    const {
+        className,
+        abreCadastro,
+        fechaCadastro,
+        abreEntrar,
+        fechaEntrar,
+        toggleSidebar
+    } = props;
 
     return(
         <div id="header" className={className}>
 
-            <FontAwesomeIcon icon={faBars} id="bar-icon"/>
+            <FontAwesomeIcon icon={faBars} id="bar-icon" onClick={toggleSidebar}/>
 
             <div id="header-centro">
                 <img src="/images/urubuzado.svg" alt="" className="Urubu-svg" id="logo"/>

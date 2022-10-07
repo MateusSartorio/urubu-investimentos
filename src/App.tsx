@@ -16,7 +16,8 @@ import { smallcards } from "./smallcards"
 function App() {
 
   const [ showCadastro, setCadastro ] = useState(false);
-  const [ showEntrar, setEntrar ] = useState(true);
+  const [ showEntrar, setEntrar ] = useState(false);
+  const [ showSidebar, setSidebar ] = useState(false);
 
 
   const fechaCadastro = () => {
@@ -35,6 +36,8 @@ function App() {
     setEntrar(true);
   }
 
+  const toggleSidebar = () => setSidebar(state => !state);
+
   return (
     <div className="App">
       <Header
@@ -43,9 +46,10 @@ function App() {
         fechaCadastro={fechaCadastro}
         abreEntrar={abreEntrar}
         fechaEntrar={fechaEntrar}
+        toggleSidebar={toggleSidebar}
       />
       <main>
-        <Sidebar />
+        {showSidebar && <Sidebar />}
         <div id="main-content">
           <MainCard titulo="Pacote de Boas Vindas" descricao='Ganhe coisas legais'/>
 

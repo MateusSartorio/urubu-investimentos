@@ -155,8 +155,8 @@ body {
 
 /* SIDEBAR STUFF */
 #sidebar {
-  min-width: 150px;
-  width: 20vw;
+  /* min-width: 150px;*/
+  width: 0vw;
   padding-right: 20px;
   /* height: 100vh; */
   background-color: var(--fundo-primario);
@@ -164,6 +164,13 @@ body {
   margin-top: 0;
   text-decoration: none;
   color: white;
+  animation: sidebar-anim 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sidebar-anim{
+  0%{display: block;}
+  100%{width: 20vw}
 }
 
 #parceiro-oficial {
@@ -188,6 +195,8 @@ body {
   margin: auto 0;
   margin-left: 10px;
 }
+
+/* @animation */
 
 /* MAIN */
 main {

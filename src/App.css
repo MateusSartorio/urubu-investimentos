@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 :root {
-  --fundo-primario: #0F1923;
-  --fundo-secundario: #1A242D;
+  --fundo-primario: #14212e;
+  --fundo-secundrio: #1d2d1a;
+  --fundo-header: #000000;
   --cor-secundaria: #f12c4c;
   --cor-terciaria: #00BA75; 
   --cor-borda: #323b45;
@@ -44,8 +46,9 @@ body {
   margin-top: 100px;
   padding: 0;
   background-color: var(--fundo-primario);
-
-  font-family: 'Roboto', sans-serif;
+  
+  font-family: 'Poppins', sans-serif;
+  
   color: white;
 }
 
@@ -63,11 +66,12 @@ body {
 #header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--fundo-primario);
+  background-color: var(--fundo-header);
   border-bottom: 1px solid var(--cor-borda);
   position: fixed;
   /* margin-top: 0; */
   width: 100vw;
+  height: 6vh;
   top: 0;
 }
 
@@ -96,8 +100,9 @@ body {
 
 #nome-empresa{
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 24px;
   padding: 10px 10px;
+  font-weight: bold;
   /* border: 2px solid blue; */
   text-align: center;
   margin: auto 0;
@@ -156,21 +161,36 @@ body {
 /* SIDEBAR STUFF */
 #sidebar {
   /* min-width: 150px;*/
-  width: 0vw;
+  width: 20vw;
   padding-right: 20px;
   /* height: 100vh; */
-  background-color: var(--fundo-primario);
+  background-color: var(--fundo-header);
   border-right: 1px solid var(--cor-borda);
   margin-top: 0;
   text-decoration: none;
   color: white;
-  animation: sidebar-anim 1s;
+  /* animation: sidebar-anim 1s;
   animation-fill-mode: forwards;
+  animation-timing-function: step-start; */
 }
 
-@keyframes sidebar-anim{
-  0%{display: block;}
-  100%{width: 20vw}
+.abrindo {
+  animation: sidebar-anim-in 0.5s forwards;
+}
+
+.fechando {
+  animation: sidebar-anim-out 0.5s forwards;
+
+}
+
+@keyframes sidebar-anim-in{
+  0%{transform: translateX(-25vw);}
+  100%{transform: translateX(0)}
+}
+
+@keyframes sidebar-anim-out{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(-25vw);}
 }
 
 #parceiro-oficial {
@@ -203,6 +223,8 @@ main {
   display: flex;
   column-gap: 20px;
   margin: 20px;
+  /* margin: 0 auto; */
+  /* border: 1px solid blue; */
 }
 
 /* MAIN CONTENT */
@@ -210,6 +232,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* border: 1px solid blue; */
+  margin: 0 auto;
 }
 
 /* MAIN CARD STUFF */
@@ -221,6 +245,8 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  
+
 
   max-width: var(--main-max-width);
   min-width: var(--main-min-width);
@@ -273,6 +299,7 @@ main {
 .small-card {
   background-color: var(--cor-terciaria);
   border-radius: var(--default-border-radius);
+  height: 200px;
   /* padding: 10px; */
   /* margin: 20px; */
   /* width: 200px; */

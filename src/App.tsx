@@ -17,7 +17,7 @@ function App() {
 
   const [ showCadastro, setCadastro ] = useState(false);
   const [ showEntrar, setEntrar ] = useState(false);
-  const [ showSidebar, setSidebar ] = useState(false);
+  const [ classe, setClasse ] = useState("");
 
 
   const fechaCadastro = () => {
@@ -36,7 +36,17 @@ function App() {
     setEntrar(true);
   }
 
-  const toggleSidebar = () => setSidebar(state => !state);
+  const toggleSidebar = () => setClasse(ant => {
+
+    console.log(ant)
+    console.log(typeof ant)
+    console.log(ant.toString() === "abrindo");
+    console.log(ant === "abrindo");
+    if(ant.toString() === "abrindo")
+      return "fechando";
+    
+    return "abrindo";
+  });
 
   return (
     <div className="App">
@@ -49,7 +59,8 @@ function App() {
         toggleSidebar={toggleSidebar}
       />
       <main>
-        {showSidebar && <Sidebar />}
+        {/* {showSidebar && <Sidebar />} */}
+        <Sidebar classe={classe}/>
         <div id="main-content">
           <MainCard titulo="Pacote de Boas Vindas" descricao='Ganhe coisas legais'/>
 

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { BotaoGenerico } from "./BotaoGenerico"
 
 interface propsType {
-
+    classe: string;
 }
 
 export const Sidebar = (props: propsType) => {
+    const { classe } = props;
+    
     return(
-        <div id="sidebar">
+        <div id="sidebar" className={classe}>
             <a
                 id="parceiro-oficial"
                 href="https://www.flamengo.com.br/"
